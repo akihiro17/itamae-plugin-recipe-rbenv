@@ -1,8 +1,8 @@
 module Itamae
   module Plugin
     module Recipe
-      module Rbenv
-        VERSION = "0.8.6"
+      module Nodenv
+        VERSION = "0.0.1"
       end
     end
   end

@@ -1,5 +1,5 @@
 node.reverse_merge!(
-  rbenv: {
+  nodenv: {
     plugins:  {},
     scheme:   'git',
     user:     ENV['USER'],
@@ -7,20 +7,20 @@ node.reverse_merge!(
     install_dependency: true,
     install_development_dependency: false,
   },
-  :'ruby-build' => {
+  :'node-build' => {
     install: true,
     build_envs: [],
   }
 )
 
-unless node[:rbenv][:rbenv_root]
+unless node[:nodenv][:nodenv_root]
   case node[:platform]
   when 'osx', 'darwin'
     user_dir = '/Users'
   else
     user_dir = '/home'
   end
-  node[:rbenv][:rbenv_root] = File.join(user_dir, node[:rbenv][:user], '.rbenv')
+  node[:nodenv][:nodenv_root] = File.join(user_dir, node[:nodenv][:user], '.nodenv')
 end
 
-include_recipe 'rbenv::install'
+include_recipe 'nodenv::install'

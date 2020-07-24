@@ -1,13 +1,13 @@
-# Itamae::Plugin::Recipe::Rbenv [![Build Status](https://travis-ci.org/k0kubun/itamae-plugin-recipe-rbenv.svg?branch=master)](https://travis-ci.org/k0kubun/itamae-plugin-recipe-rbenv)
+# Itamae::Plugin::Recipe::Rbenv [![Build Status](https://travis-ci.org/k0kubun/itamae-plugin-recipe-nodenv.svg?branch=master)](https://travis-ci.org/akihiro17/itamae-plugin-recipe-nodenv)
 
-[Itamae](https://github.com/ryotarai/itamae) plugin to install ruby with rbenv
+[Itamae](https://github.com/ryotarai/itamae) plugin to install node with nodenv
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'itamae-plugin-recipe-rbenv'
+gem 'itamae-plugin-recipe-nodenv'
 ```
 
 And then execute:
@@ -16,18 +16,18 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install itamae-plugin-recipe-rbenv
+    $ gem install itamae-plugin-recipe-nodenv
 
 # Usage
 ## System wide installation
 
-Install rbenv to /usr/local/rbenv or some shared path
+Install nodenv to /usr/local/nodenv or some shared path
 
 ### Recipe
 
 ```ruby
 # your recipe
-include_recipe "rbenv::system"
+include_recipe "nodenv::system"
 ```
 
 ### Node
@@ -36,38 +36,38 @@ Use this with `itamae -y node.yml`
 
 ```yaml
 # node.yml
-rbenv:
+nodenv:
   global:
     2.3.0
   versions:
     - 2.3.0
     - 2.2.4
 
-  # rbenv install dir, optional (default: /usr/local/rbenv)
-  rbenv_root: "/path/to/rbenv"
+  # nodenv install dir, optional (default: /usr/local/nodenv)
+  nodenv_root: "/path/to/nodenv"
 
   # specify scheme to use in git clone, optional (default: git)
   scheme: https
 
-  # Create /usr/local/rbenv/cache, optional (default: false)
-  # See: https://github.com/rbenv/ruby-build#package-download-caching
+  # Create /usr/local/nodenv/cache, optional (default: false)
+  # See: https://github.com/nodenv/node-build#package-download-caching
   cache: true
 
   # Whether install dependencies (default: true)
   # Recommend false if `--no-sudo`
   install_dependency: true
 
-  # Install arbitrary rbenv plugins, optional (default: [])
+  # Install arbitrary nodenv plugins, optional (default: [])
   plugins:
-    dcarley/rbenv-sudo:
+    dcarley/nodenv-sudo:
       revision: master
 
-# ruby-build is always installed. Specifying revision improves performance.
-ruby-build:
+# node-build is always installed. Specifying revision improves performance.
+node-build:
   revision: e455975286e44393b1b33037ae1ce40ef2742401
 
-# Optional plugin. Specify :install or :revision to install rbenv-default-gems.
-rbenv-default-gems:
+# Optional plugin. Specify :install or :revision to install nodenv-default-gems.
+nodenv-default-gems:
   default-gems:
     - bundler
     - bcat ~>0.6
@@ -82,20 +82,20 @@ rbenv-default-gems:
 Recommend to append this to .bashrc in your server.
 
 ```bash
-export RBENV_ROOT=/usr/local/rbenv
+export RBENV_ROOT=/usr/local/nodenv
 export PATH="${RBENV_ROOT}/bin:${PATH}"
-eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 ```
 
 ## Installation for a user
 
-Install rbenv to `~#{node[:rbenv][:user]}/.rbenv`
+Install nodenv to `~#{node[:nodenv][:user]}/.nodenv`
 
 ### Recipe
 
 ```ruby
 # your recipe
-include_recipe "rbenv::user"
+include_recipe "nodenv::user"
 ```
 
 ### Node
@@ -104,7 +104,7 @@ Use this with `itamae -y node.yml`
 
 ```yaml
 # node.yml
-rbenv:
+nodenv:
   user: k0kubun
   global:
     2.3.0
@@ -115,8 +115,8 @@ rbenv:
   # specify scheme to use in git clone, optional (default: git)
   scheme: https
 
-  # Create ~/.rbenv/cache, optional (default: false)
-  # See: https://github.com/rbenv/ruby-build#package-download-caching
+  # Create ~/.nodenv/cache, optional (default: false)
+  # See: https://github.com/nodenv/node-build#package-download-caching
   cache: true
 
   # Install build dependencies or not (default: true)
@@ -126,12 +126,12 @@ rbenv:
   # Install dependencies to build *-dev or not (default: false)
   install_development_dependency: false
 
-# ruby-build is always installed. Specifying revision improves performance.
-ruby-build:
+# node-build is always installed. Specifying revision improves performance.
+node-build:
   revision: e455975286e44393b1b33037ae1ce40ef2742401
 
-# Optional plugin. Specify :install or :revision to install rbenv-default-gems.
-rbenv-default-gems:
+# Optional plugin. Specify :install or :revision to install nodenv-default-gems.
+nodenv-default-gems:
   default-gems:
     - bundler
     - bcat ~>0.6
@@ -147,7 +147,7 @@ This plugin can be used for MItamae too. Put this repository under `./plugins` a
 
 ```rb
 node.reverse_merge!(
-  rbenv: {
+  nodenv: {
     user: 'k0kubun',
     global: '2.3.1',
     versions: %w[
@@ -157,7 +157,7 @@ node.reverse_merge!(
   }
 )
 
-include_recipe "rbenv::user"
+include_recipe "nodenv::user"
 ```
 
 ## License

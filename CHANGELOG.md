@@ -34,12 +34,12 @@
 
 ## v0.7.2
 ### Added
-- Install `autoconf` and `bison` on RedHat platforms [#26](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/26)
+- Install `autoconf` and `bison` on RedHat platforms [#26](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/26)
   *Thanks to @hsbt*
 
 ## v0.7.1
 ### Added
-- Install `make` on RedHat platforms [#25](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/25)
+- Install `make` on RedHat platforms [#25](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/25)
   *Thanks to @hsbt*
 
 ## v0.7.0
@@ -49,67 +49,67 @@
 
 ## v0.6.11
 ### Fixed
-- Avoid unnecessary `rbenv global` [#24](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/24)
+- Avoid unnecessary `nodenv global` [#24](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/24)
   *Thanks to @pocke*
 
 ## v0.6.10
 ### Fixed
-- Fix undefined variable error and installation requirement in `node[:rbenv][:plugins]` feature [#23](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/23)
+- Fix undefined variable error and installation requirement in `node[:nodenv][:plugins]` feature [#23](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/23)
   *Thanks to @mozamimy*
 
 ## v0.6.9
 ### Added
-- Add `node[:rbenv][:plugins]` to install arbitrary rbenv plugins [#21](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/21)
+- Add `node[:nodenv][:plugins]` to install arbitrary nodenv plugins [#21](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/21)
   *Thanks to @Yuki-Inoue*
 
 ## v0.6.8
 ### Added
-- Add `install_dependency` node option [#20](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/20)
+- Add `install_dependency` node option [#20](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/20)
   *Thanks to @sue445*
 
 ## v0.6.7
 ### Fixed
-- Fix package installation error on Debian [#19](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/19)
+- Fix package installation error on Debian [#19](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/19)
   *Thanks to @hanachin*
 
 ## v0.6.6
 ### Fixed
-- Support installing 2.1.10 when 2.1.1 is installed as well [#17](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/17)
+- Support installing 2.1.10 when 2.1.1 is installed as well [#17](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/17)
   *Thanks to @chiastolite*
 
 ## v0.6.5
 ### Fixed
-- Support Ubuntu 18.04 [#18](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/18)
+- Support Ubuntu 18.04 [#18](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/18)
   *Thanks to @swanmatch*
 
 ## v0.6.4
 ### Added
-- Suport Amazon Linux [#16](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/16)
+- Suport Amazon Linux [#16](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/16)
   *Thanks to @kawakubox*
 
 ## v0.6.3
 ### Fixed
-- Fix the group of default-gems file [#14](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/14).
+- Fix the group of default-gems file [#14](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/14).
   *Thanks to @iyuuya*
 
 ## v0.6.2
 ### Fixed
 
-- Fix the owner of user repository to rbenv:user [#13](https://github.com/k0kubun/itamae-plugin-recipe-rbenv/pull/13).
+- Fix the owner of user repository to nodenv:user [#13](https://github.com/k0kubun/itamae-plugin-recipe-nodenv/pull/13).
   *Thanks to @iyuuya*
 
 ## v0.6.1
 ### Added
 
 - Support package download caching
-  - Set `node[:rbenv][:cache]` true
-  - See: https://github.com/rbenv/ruby-build#package-download-caching
+  - Set `node[:nodenv][:cache]` true
+  - See: https://github.com/nodenv/node-build#package-download-caching
 
 ## v0.6.0
 ### Changed
 
-- Drop support for rbenv-gem-rehash since it's merged to rbenv core
-  - See: https://github.com/rbenv/rbenv/pull/638
+- Drop support for nodenv-gem-rehash since it's merged to nodenv core
+  - See: https://github.com/nodenv/nodenv/pull/638
 - Don't check base-devel group installation for Arch Linux
   - It's unnecessary for specinfra >= 2.50.2
   - See: https://github.com/mizzy/specinfra/pull/517
@@ -126,18 +126,18 @@
 ## v0.4.1
 ### Added
 
-- rbenv's revision can be configurable with `node[:rbenv][:revision]`
+- nodenv's revision can be configurable with `node[:nodenv][:revision]`
   - To utilize optimization by https://github.com/itamae-kitchen/itamae/pull/182
 
 ## v0.4.0
 ### Added
 
-- Support user-local rbenv installation by `rbenv::user`
-- `rbenv_plugin` resource
+- Support user-local nodenv installation by `nodenv::user`
+- `nodenv_plugin` resource
 
 ### Changed
 
-- Unused rbenv plugins are not `git clone`ed by default except ruby-build
+- Unused nodenv plugins are not `git clone`ed by default except node-build
   - You should explicitly set `install: true` if you want
 
 ## v0.3.4
@@ -155,7 +155,7 @@
 ## v0.3.2
 ### Added
 
-- Add support for rbenv-gem-rehash.
+- Add support for nodenv-gem-rehash.
   *Thanks to @dex1t*
 
 ## v0.3.1
@@ -180,13 +180,13 @@
 ## v0.2.1
 ### Added
 
-- Allow installing gems by default using rbenv-default-gems.
+- Allow installing gems by default using nodenv-default-gems.
   *Thanks to @sue445*
 
 ## v0.2.0
 ### Added
 
-- Allow specifying `RBENV_ROOT` by `node[:rbenv][:rbenv_root]`.
+- Allow specifying `RBENV_ROOT` by `node[:nodenv][:nodenv_root]`.
   *Thanks to @sue445*
 
 ## v0.1.2
@@ -198,17 +198,17 @@
 ## v0.1.1
 ### Fixed
 
-- Prevent error when `node[:'ruby-build']` is nil
+- Prevent error when `node[:'node-build']` is nil
 
 ## v0.1.0
 ### Added
 
-- Support updating ruby-build's revision by `node[:'ruby-build'][:revision]`
+- Support updating node-build's revision by `node[:'node-build'][:revision]`
 
 ## v0.0.1
 ### Added
 
-- Clone rbenv and ruby-build by default
-- Support ruby-build
-  - installing multiple rubies using ruby-build
-  - `rbenv global`
+- Clone nodenv and node-build by default
+- Support node-build
+  - installing multiple rubies using node-build
+  - `nodenv global`

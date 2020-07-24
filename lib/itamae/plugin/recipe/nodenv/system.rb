@@ -1,16 +1,16 @@
 node.reverse_merge!(
-  rbenv: {
+  nodenv: {
     plugins:    {},
-    rbenv_root: '/usr/local/rbenv',
+    nodenv_root: '/usr/local/nodenv',
     scheme:     'git',
     versions:   [],
     install_dependency: true,
     install_development_dependency: false,
   },
-  :'ruby-build' => {
+  :'node-build' => {
     install: true,
     build_envs: [],
   }
 )
 
-include_recipe 'rbenv::install'
+include_recipe 'nodenv::install'
